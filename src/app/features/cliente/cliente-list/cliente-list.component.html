@@ -1,0 +1,55 @@
+<mat-card appearance="outlined" style="color: red;">
+  <mat-card-content>Cadastro de Cliente</mat-card-content>
+</mat-card>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell *matCellDef="let cliente"> {{cliente.id}} </mat-cell>
+  </ng-container>
+
+  <!-- Nome Column -->
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+    <mat-cell *matCellDef="let cliente"> {{cliente.nome}} </mat-cell>
+  </ng-container>
+
+  <!-- Email Column -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+    <mat-cell *matCellDef="let cliente"> {{cliente.email}} </mat-cell>
+  </ng-container>
+
+  <!-- Telefone Column -->
+  <ng-container matColumnDef="telefone">
+    <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
+    <mat-cell *matCellDef="let cliente"> {{cliente.telefone}} </mat-cell>
+  </ng-container>
+
+  <!-- Idade Column -->
+  <ng-container matColumnDef="idade">
+    <mat-header-cell *matHeaderCellDef> Idade </mat-header-cell>
+    <mat-cell *matCellDef="let cliente"> {{cliente.idade}} </mat-cell>
+  </ng-container>
+
+  <!-- Ativo Column -->
+  <ng-container matColumnDef="ativo">
+    <mat-header-cell *matHeaderCellDef> Ativo </mat-header-cell>
+    <mat-cell *matCellDef="let cliente"> {{cliente.ativo ? 'Sim' : 'Não'}} </mat-cell>
+  </ng-container>
+
+  <!-- Ações Column -->
+  <ng-container matColumnDef="acoes">
+    <mat-header-cell *matHeaderCellDef> Ações </mat-header-cell>
+    <mat-cell *matCellDef="let cliente">
+      <!-- Botões de ação, como Editar e Excluir, podem ser colocados aqui -->
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<!-- Paginator -->
+<mat-paginator [pageSizeOptions]="[3, 10, 25]" showFirstLastButtons></mat-paginator>
